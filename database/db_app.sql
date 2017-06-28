@@ -1,1 +1,1 @@
-CREATE TABLE akjfjfak;
+CREATE TABLE akjfjfakw/test git 
