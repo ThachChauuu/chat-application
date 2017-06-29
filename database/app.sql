@@ -4,16 +4,22 @@ GO
 USE app
 GO
 
+DROP TABLE message_lib
+DROP TABLE threads
+DROP TABLE users
+
 CREATE TABLE users(
 	id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	email VARCHAR(50) NOT NULL UNIQUE,
 	username VARCHAR(50) NOT NULL UNIQUE,
 	pwd VARCHAR(50) NOT NULL,
-	link_avt VARBINARY(100) NOT NULL,
+	link_avt VARBINARY(100),
 	chanel_name VARCHAR(255) NOT NULL UNIQUE,
 	birthday DATE NOT NULL,
 	subcriber INT DEFAULT 0
 )
+GO
+
 
 CREATE TABLE threads(
 	id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
@@ -21,6 +27,8 @@ CREATE TABLE threads(
 	fk_idSend INT FOREIGN KEY REFERENCES users(id),
 	fk_idRecieve INT FOREIGN KEY REFERENCES users(id)
 )
+GO
+
 
 CREATE TABLE message_lib(
 	id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
@@ -30,3 +38,7 @@ CREATE TABLE message_lib(
 	fk_idUser INT FOREIGN KEY REFERENCES users(id),
 	isSeen BIT DEFAULT 0
 )
+GO
+
+
+
