@@ -40,5 +40,7 @@ CREATE TABLE message_lib(
 )
 GO
 
+ALTER TABLE users
+ALTER COLUMN link_avt VARBINARY(MAX)
 
 
